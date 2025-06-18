@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A rocha virtual de estimação</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <div id="ceu"></div>
-        <div id="terra"></div>
-        <img id="rocking" src="./img/rock.png" alt="iRock" onclick="touchRock()"/>
+    <div id="ceu"></div>
+    <div id="terra"></div>
+
+    <div id="container">
+        <img id="rocking" src="./img/rock.png" alt="iRock" />
+
+        <div id="balao-fala" class="escondido">
+            <p id="texto-fala"></p>
+            <div id="input-nome" class="escondido">
+                <input type="text" id="nome" placeholder="Digite seu nome aqui">
+                <button onclick="enviarNome()">Enviar</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
