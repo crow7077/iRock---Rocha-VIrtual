@@ -4,57 +4,70 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 #ceu {
     width: 100%;
-    height: 411px;
+    height: 50vh;
     background: #316ea0;
     position: absolute;
     z-index: 0;
 }
 
 #terra {
-    margin-top: 411px;
+    margin-top: 50vh;
     width: 100%;
-    height: 500px;
+    height: 50vh;
     background: #0f5306;
     position: absolute;
     z-index: 0;
 }
 
-#rocking {
-    margin: 100px 0 0 20px;
-    width: 500px;
-    height: auto;
+#container {
     position: relative;
+    z-index: 1;
+}
+
+#rocking {
+    width: 500px;
+    max-width: 90vw;
+    position: relative;
+    margin: calc(50vh - 250px) 0 0 5vw;
+    height: auto;
     z-index: 1;
 }
 
 #balao-fala {
     border-radius: 15px;
-    margin-top: 100px;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 380px;
     background-color: white;
     border: 2px solid black;
     padding: 10px;
     max-width: 300px;
     font-family: Arial, sans-serif;
+    position: absolute;
+    z-index: 2;
+    top: calc(50vh - 250px);
+    left: calc(5vw + 500px + 20px);
 }
 
 .escondido {
     display: none;
 }
 
-#input-nome {
+#input-nome:not(.escondido) {
+    display: flex;
+    gap: 5px;
     margin-top: 10px;
 }
 
 input {
+    flex: 1;
     padding: 5px;
     border-radius: 5px;
     border: solid 1px #000;
+    min-width: 100px;
 }
 
 button {
@@ -64,4 +77,52 @@ button {
     border: solid 1px #000;
     color: #ffffff;
     background: #316ea0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #rocking {
+        width: 320px;
+        margin: calc(50vh - 160px) 0 0 5vw;
+    }
+
+    #balao-fala {
+        top: calc(50vh - 220px);
+        left: calc(5vw + 240px + 10px);
+        max-width: 220px;
+    }
+
+    input {
+        min-width: 80px;
+    }
+
+    button {
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #rocking {
+        width: 250px;
+        margin: calc(50vh - 125px) 0 0 5vw;
+    }
+
+    #balao-fala {
+        top: calc(50vh - 220px);
+        left: calc(5vw + 180px + 8px);
+        max-width: 200px;
+    }
+
+    #input-nome {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
 }
